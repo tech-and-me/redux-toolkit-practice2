@@ -1,33 +1,32 @@
-import React from 'react'
+import React from "react";
 import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { selectAllPosts } from "./postsSlice";
 import PostAuthor from "./PostAuthor";
-import TimeAgo from './TimeAgo';
-
-
+import TimeAgo from "./TimeAgo";
+import ReactionButtons from "./ReactionButtons";
 
 const PostsList = () => {
-    const posts = useSelector (selectAllPosts)
+  const posts = useSelector(selectAllPosts);
 
-    const renderedPosts = posts.map(post => (
-        <article key={post.id}>
-            <h3>{post.title}</h3>
-            <p>{post.content.substring(0,100)}</p>
-            <p className="postCredit">
-                <PostAuthor userId={post.userId}/>
-                <TimeAgo timestamp={post.date}/>
-            </p>
-        </article>
-    ))
+  const renderedPosts = posts.map((post) => (
+    <article key={post.id}>
+      <h3>{post.title}</h3>
+      <p>{post.content.substring(0, 100)}</p>
+      <p className="postCredit">
+        <PostAuthor userId={post.userId} />
+        <TimeAgo timestamp={post.date} />
+      </p>
+      <ReactionButtons post={post} />
+    </article>
+  ));
 
   return (
     <section>
-        <h2>Posts</h2>
-        {renderedPosts}
+      <h2>Posts</h2>
+      {renderedPosts}
     </section>
-  )
-  
-}
+  );
+};
 
-export default PostsList
+export default PostsList;
