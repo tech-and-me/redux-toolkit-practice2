@@ -59,6 +59,7 @@ form {
 
 .postCredit {
   font-size: 1rem;
+  color:rgb(39, 181, 136);
 }
 
 .reactionButton {
@@ -75,6 +76,5 @@ button{
   border: none;
   margin: 1rem auto;
   padding: 0.8rem;
-  background-color: black;
-  color:beige;
 }
+
